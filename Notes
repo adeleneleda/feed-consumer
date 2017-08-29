@@ -1,0 +1,44 @@
+FeedConsumer.DataStore.lookup("Slavia Praha - FC Viktoria Plzen")
+
+a = FeedConsumer.DataStore.all
+b = Enum.map(a, fn({k, v}) -> k end)
+
+Enum.filter(b, fn(x) -> String.ends_with?(x, "21") end)
+
+Enum.filter(b, fn(x) -> String.contains?(x, "Pribram") end)
+
+
+String.jaro_distance("FC Viktoria North","FC Viktoria South")
+
+
+DataStore
+
+FeedConsumer.Feed.get_schedule
+
+
+string = "Slavia Praha U21 - FC Viktoria Plzen U21"
+keys = Enum.map(FeedConsumer.DataStore.all, fn({k, _}) -> k end)
+Enum.max_by(keys, fn(x) -> String.jaro_distance(string, x) end)
+
+Enum.sort_by(keys, fn(x) -> String.jaro_distance(string, x) end) |> Enum.reverse
+
+FeedConsumer.Feed.get_schedule(:os.system_time(:seconds))
+length FeedConsumer.DataStore.all
+0
+
+
+FeedConsumer.Feed.get_schedule(:os.system_time(:seconds) - 18_000)
+length FeedConsumer.DataStore.all
+95
+
+
+FeedConsumer.Feed.get_schedule(:os.system_time(:seconds) - 43_200)
+length FeedConsumer.DataStore.all
+339
+
+FeedConsumer.Feed.get_schedule(:os.system_time(:seconds) - 86_400)
+length FeedConsumer.DataStore.all
+1709
+
+
+Cucuta Deportivo
