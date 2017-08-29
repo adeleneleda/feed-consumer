@@ -3,7 +3,6 @@
 An odds feed consumer written in Elixir
 
 ## Overview
-======
 A feed consumer written in Elixir that fetches odds from a given odds feed URL, validates them to ensure completeness and inclusion in the match schedule, and records them to an S3 bucket.
 
 The following is the general algorithm in the pipe paradigm, 
@@ -16,7 +15,6 @@ The following is the general algorithm in the pipe paradigm,
 
 
 ## Components:
-======
 ### I. Primary
 The following are the main components that work together to achieve the above pipeline:
 
@@ -102,11 +100,9 @@ a. **Close Matches**
 
 
 ## GenServer Structure (OTP)
-======
 At the start of the application, match schedule data is fetched from the Schedule API and an odds fetch is scheduled to be sent after 1 minute (60,000 ms). The fetch to the Schedule API has also schedule another fetch after an hour (3,600,000 ms). In summary, the Schedule API is polled every hour and the Odds Feed every munute. Frequency can be adjusted by updating ```FeedConsumer.Server```.
 
 ## API Format:
-======
 
 #### Schedule
 
@@ -155,7 +151,6 @@ where:
 
 
 ## Points for Discussion:
-======
 
 1. **How would you structure this project to support multiple feeds of different formats?**
 
