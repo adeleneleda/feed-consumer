@@ -18,6 +18,16 @@ The following is the general algorithm in the pipe paradigm,
 
     iex -S mix
 
+Note, make sure that dev.exs exists and has the relevant AWS configurations.
+
+    # dev.exs
+    use Mix.Config
+
+    config :ex_aws,  
+      access_key_id: ["AKIAJNW2X4IN4UZZHWOQ", :instance_role],
+      secret_access_key: ["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", :instance_role],
+      region: "us-west-2"
+
 ## Components:
 ### I. Primary
 The following are the main components that work together to achieve the above pipeline:
