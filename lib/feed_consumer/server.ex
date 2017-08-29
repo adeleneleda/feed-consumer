@@ -45,7 +45,7 @@ defmodule FeedConsumer.Server do
   def log(message), do: Logger.info("#{ __MODULE__ }: #{ message }")
 
   def schedule_odds_fetch,  do: Process.send_after(self(), :get_odds, 60_000)
-  def schedule_sched_fetch, do: Process.send_after(self(), :get_matches, 1_200_000)
+  def schedule_sched_fetch, do: Process.send_after(self(), :get_matches, 3_600_000) 
 
   # HELPER
   defp time_now,                 do: :os.system_time(:seconds)
