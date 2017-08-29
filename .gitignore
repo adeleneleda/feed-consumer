@@ -17,3 +17,6 @@ erl_crash.dump
 *.ez
 
 *.log
+
+config/prod.exs
+config/dev.exs
