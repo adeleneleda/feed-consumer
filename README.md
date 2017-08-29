@@ -14,6 +14,10 @@ The following is the general algorithm in the pipe paradigm,
     |> Save in AWS S3
 
 
+## Run
+
+    iex -S mix
+
 ## Components:
 ### I. Primary
 The following are the main components that work together to achieve the above pipeline:
